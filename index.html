@@ -96,6 +96,26 @@
       stroke-dashoffset: 60;
       animation: drawM 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
+
+    /* Premium Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(23, 22, 21, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(217, 173, 124, 0.25);
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(217, 173, 124, 0.45);
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(217, 173, 124, 0.25) rgba(23, 22, 21, 0.6);
+    }
   </style>
 </head>
 
