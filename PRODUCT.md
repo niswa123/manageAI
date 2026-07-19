@@ -1,17 +1,16 @@
 # PRODUCT.md - МенеджAI
 
 ## Product Purpose
-МенеджAI (ИИ-Управляющий смен) is an autonomous AI agent that manages shift scheduling, communication, and performance tracking for restaurant staff, eliminating human manager bias, and saving 20% on labor costs (ФОТ) within 14 days.
+МенеджAI (ИИ-Диспетчер) is an autonomous AI agent that manages order dispatch, staff coordination, and shift control for local service companies (cleaning agencies and last-mile delivery networks). It replaces manual coordination in chaotic WhatsApp groups, reducing worker turnover and saving 20% on labor costs (ФОТ) within 14 days.
 
 ## Target Audience
-- Restaurant owners
-- Restaurant franchise managers and operators
-- Food and beverage operations directors
+- Owners and Operational Directors of cleaning agencies (commercial real estate, offices, residential complexes)
+- Operations managers of local courier services, express delivery networks, and darkstores (2 to 10 hubs/branches)
 
 ## Brand & Positioning
 - Elite front-end engineering and editorial design aesthetic (Stripe, Apple, Linear)
-- Minimalist, warm, and highly structured B2B software
-- Focus on precision, mathematics, fairness, and transparency
+- Focus on mathematical precision, absolute fairness, and automated operations
+- Philosophy: "Люди подчиняются системам легче, чем конкретному человеку" (Oscar Hartmann). Humans direct staff with emotion, causing friction; AI acts objectively.
 
 ## Register
 brand
