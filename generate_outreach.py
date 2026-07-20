@@ -34,42 +34,40 @@ else:
     MODEL_NAME = "gpt-4o-mini"
     API_KEY = OPENAI_API_KEY
 
-# System prompt for B2B outreach pivot (operational dispatch service МенеджAI)
+# System prompt for B2B outreach pivot (operational dispatch service МенеджAI for Cleaning)
 SYSTEM_PROMPT = """You are a senior B2B growth architect and elite sales copywriter.
-Your goal is to write a highly personalized, compelling, and natural-sounding cold message to owners/operators of cleaning companies or courier delivery services in Russia.
+Your goal is to write a highly personalized, compelling, and natural-sounding cold message to owners/operators of B2B cleaning companies in Russia.
 Avoid sounding like a bot. Do not use generic corporate jargon or overly aggressive sales pitches.
 The tone should be peer-to-peer, respectful, helpful, and concise.
 Write the output message in Russian, since the target audience consists of Russian business owners."""
 
-def generate_prompt(brand_name, locations_count, website, contact_info, sphere):
+def generate_prompt(brand_name, locations_count, website, contact_info):
     """
     Constructs a highly detailed prompt containing context and constraints for the LLM.
     """
-    sphere_text = "клининга (уборка квартир и офисов)" if sphere == "cleaning" else "последней мили / курьерской доставки"
-    
     return f"""Write a cold B2B outreach message based on the following lead context and product offering:
 
 LEAD CONTEXT:
 - Brand Name (Название компании): {brand_name}
-- Number of Locations/Hubs (Количество филиалов/хабов): {locations_count}
+- Number of Locations/Offices (Количество филиалов/офисов): {locations_count}
 - Website: {website}
-- Industry Niche: {sphere_text}
+- Industry Niche: B2B/B2C клининг (уборка офисов, коммерческой недвижимости, жилых комплексов)
 - Contact: {contact_info}
 
 PRODUCT CONTEXT (МенеджAI):
-- What it is: An autonomous AI-dispatcher for cleaning companies and courier services.
-- How it works: Imports employee database and schedule in 5 minutes (no POS system integration required). Automatically distributes orders based on geolocation, current load, and urgency. Co-ordinates shifts and tasks employees directly via Telegram.
-- Pain points solved: High dispatcher workload/mistakes, courier/cleaner turnover, and labor cost (ФОТ) overruns.
+- What it is: An autonomous AI-dispatcher for cleaning companies.
+- How it works: Imports cleaner database and schedule in 5 minutes (no cash registers/POS system integration required, simple Excel uploads). Automatically distributes cleaning tasks based on geolocation, current load, and type of cleaning. Co-ordinates shifts and tasks cleaners directly via Telegram.
+- Pain points solved: High dispatcher workload/mistakes, cleaner turnover/retention (68% of cleaning companies cite recruitment of linear staff as their #1 operational bottleneck), and labor cost (ФОТ) overruns.
 - Primary Benefit: Cuts labor costs (ФОТ) by 20% and completely automates dispatcher routines.
 
 OFFER:
-- Exclusive test-drive for 9,900 RUB (instead of 25,000 RUB) for only 3 local chains/agencies.
+- Exclusive test-drive for 9,900 RUB (instead of 25,000 RUB) for only 3 local cleaning networks/agencies.
 - Risk reversal: 14-day money-back guarantee if labor costs do not decrease.
 
 OUTREACH CONSTRAINTS:
 1. Start directly by mentioning their brand name '{brand_name}' and their scale '{locations_count}' to make the message feel organic (e.g. "Приветствую! Видел, что у {brand_name} сейчас {locations_count} филиалов...").
 2. Keep the message under 130 words.
-3. Address the pain of manual dispatching, dispatcher mistakes, or employee turnover/standby costs.
+3. Address the pain of manual coordination, cleaner turnover, or dispatcher burnout, explicitly weaving in the industry context.
 4. Do not use em-dashes (—), placeholders, or brackets.
 5. End with a clear, low-friction call to action (e.g. asking if they want to calculate potential savings or see a quick demo).
 6. Write in natural Russian suitable for Telegram or WhatsApp.
@@ -102,12 +100,11 @@ def get_personalized_message(client, prompt):
 
 def simulate_yandex_maps_scraping():
     """
-    Simulates scraping Yandex Maps for B2B cleaning and courier leads.
+    Simulates scraping Yandex Maps for B2B cleaning leads.
     Filters out solo freelancers (e.g. 'Частный клинер Елена', 'ИП Иванов') 
-    and giant monopolies (e.g. 'Яндекс Доставка', 'Вкусно и Точка'),
-    focusing on local networks with 2 to 10 hubs/locations.
+    and giant monopolies, focusing on local networks with 2 to 10 locations/offices.
     """
-    logger.info("Initializing Yandex Maps scraping simulation for cleaning/delivery services...")
+    logger.info("Initializing Yandex Maps scraping simulation for cleaning services...")
     time.sleep(1.0)
     
     # Mock data that represents parsed leads satisfying the filters
@@ -116,33 +113,29 @@ def simulate_yandex_maps_scraping():
             "Brand Name": "Чистый Дом",
             "Number of locations": 4,
             "Website": "clean-house-spb.ru",
-            "Contact": "+79119283746",
-            "Sphere": "cleaning"
-        },
-        {
-            "Brand Name": "КурьерЭкспресс",
-            "Number of locations": 3,
-            "Website": "courierexpress-msk.ru",
-            "Contact": "@courier_express_dispatch",
-            "Sphere": "delivery"
+            "Contact": "+79119283746"
         },
         {
             "Brand Name": "КлинингПрофи",
             "Number of locations": 6,
             "Website": "cleaning-profi.ru",
-            "Contact": "+79031234567",
-            "Sphere": "cleaning"
+            "Contact": "+79031234567"
         },
         {
-            "Brand Name": "Быстрый Ровер",
+            "Brand Name": "СпецКлининг",
+            "Number of locations": 3,
+            "Website": "spec-cleaning-msk.ru",
+            "Contact": "@spec_cleaning_dispatch"
+        },
+        {
+            "Brand Name": "ЭкоКлининг",
             "Number of locations": 5,
-            "Website": "fastrover-delivery.ru",
-            "Contact": "+79998887766",
-            "Sphere": "delivery"
+            "Website": "ecocleaning-nsk.ru",
+            "Contact": "+79998887766"
         }
     ]
     
-    logger.info(f"Scraped and filtered {len(scraped_leads)} leads from Yandex Maps successfully.")
+    logger.info(f"Scraped and filtered {len(scraped_leads)} cleaning company leads from Yandex Maps successfully.")
     df = pd.DataFrame(scraped_leads)
     df.to_excel(INPUT_FILE, index=False)
     logger.info(f"Saved initial scraped leads to '{INPUT_FILE}'.")
@@ -168,27 +161,22 @@ def process_leads():
     else:
         client = OpenAI(api_key=API_KEY)
 
-    # 2. Check for input file or run Yandex Maps scraper
-    if not os.path.exists(INPUT_FILE):
-        df = simulate_yandex_maps_scraping()
-    else:
+    # 2. Check for input file or run Yandex Maps scraper (overwriting to ensure fresh cleaning leads)
+    if os.path.exists(INPUT_FILE):
         try:
-            df = pd.read_excel(INPUT_FILE)
-            logger.info(f"Loaded {len(df)} leads from existing file '{INPUT_FILE}'.")
+            os.remove(INPUT_FILE)
+            logger.info(f"Removed old input file '{INPUT_FILE}' to generate fresh cleaning leads.")
         except Exception as e:
-            logger.error(f"Failed to read '{INPUT_FILE}': {e}")
-            return
+            logger.warning(f"Could not remove old input file: {e}")
+            
+    df = simulate_yandex_maps_scraping()
 
     # 3. Check for required columns
-    required_cols = ["Brand Name", "Number of locations", "Website", "Contact", "Sphere"]
+    required_cols = ["Brand Name", "Number of locations", "Website", "Contact"]
     for col in required_cols:
         if col not in df.columns:
-            # If sphere is missing, default it to cleaning for backward compatibility
-            if col == "Sphere":
-                df["Sphere"] = "cleaning"
-            else:
-                logger.error(f"Missing required column: '{col}'. Present: {list(df.columns)}")
-                return
+            logger.error(f"Missing required column: '{col}'. Present: {list(df.columns)}")
+            return
 
     # Initialize output column if not exists
     if "Personalized Message" not in df.columns:
@@ -205,11 +193,10 @@ def process_leads():
         locations = row["Number of locations"]
         website = row["Website"]
         contact = row["Contact"]
-        sphere = row["Sphere"]
 
-        logger.info(f"Processing B2B Lead {index + 1}/{len(df)}: {brand_name} ({locations} hubs)")
+        logger.info(f"Processing B2B Lead {index + 1}/{len(df)}: {brand_name} ({locations} offices)")
 
-        prompt = generate_prompt(brand_name, locations, website, contact, sphere)
+        prompt = generate_prompt(brand_name, locations, website, contact)
         message = get_personalized_message(client, prompt)
 
         if message:

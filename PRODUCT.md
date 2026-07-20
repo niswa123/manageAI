@@ -1,11 +1,10 @@
 # PRODUCT.md - МенеджAI
 
 ## Product Purpose
-МенеджAI (ИИ-Диспетчер) is an autonomous AI agent that manages order dispatch, staff coordination, and shift control for local service companies (cleaning agencies and last-mile delivery networks). It replaces manual coordination in chaotic WhatsApp groups, reducing worker turnover and saving 20% on labor costs (ФОТ) within 14 days.
+МенеджAI (ИИ-Диспетчер) is an autonomous AI agent that manages order dispatch, staff coordination, and shift control exclusively for B2B cleaning companies (commercial, office, residential complexes). It replaces manual coordination in chaotic WhatsApp groups, resolves coordinator burnout, and solves the major staff recruitment/retention bottleneck (where 68% of companies struggle with linear staff hiring), saving 20% on labor costs (ФОТ) within 14 days.
 
 ## Target Audience
-- Owners and Operational Directors of cleaning agencies (commercial real estate, offices, residential complexes)
-- Operations managers of local courier services, express delivery networks, and darkstores (2 to 10 hubs/branches)
+- Owners and Operational Directors of cleaning companies (commercial real estate, offices, residential complexes) with 2 to 10 regional offices or hubs.
 
 ## Brand & Positioning
 - Elite front-end engineering and editorial design aesthetic (Stripe, Apple, Linear)

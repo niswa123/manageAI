@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>МенеджAI — ИИ-Диспетчер для клининга и курьерских служб</title>
+  <title>МенеджAI — ИИ-Диспетчер для клининговых компаний</title>
   <meta name="description"
-    content="ИИ-Диспетчер МенеджAI снизит перерасход линейного ФОТ на 20% за 14 дней. Автоматическое распределение заказов, контроль выходов курьеров/клинеров и координация смен в Telegram.">
+    content="ИИ-Диспетчер МенеджAI снизит перерасход линейного ФОТ на 20% за 14 дней. Автоматическое распределение уборок, контроль выходов клинеров и координация смен в Telegram.">
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d9ad7c' d='M50 0C22.4 0 0 22.4 0 50C0 77.6 22.4 100 50 100C77.6 100 100 77.6 100 50C100 22.4 77.6 0 50 0ZM50 85C30.7 85 15 69.3 15 50C15 30.7 30.7 15 50 15C69.3 15 85 30.7 85 50C85 69.3 69.3 85 50 85ZM57.5 28C69.9 28 80 37.8 80 50C80 62.2 69.9 72 57.5 72C50.2 72 43.8 68.6 39.8 63.3C40.6 57.5 45.6 53 51.5 53C56.7 53 61 57.3 61 62.5C61 65.5 59 68 56 68.8C62.8 68 68 62.2 68 55C68 46.7 61.3 40 53 40C44.7 40 38 46.7 38 55C38 58.9 39.5 62.4 42 65C33.7 61.4 28 53.1 28 43.5C28 35 34.7 28 43 28C46 28 48.8 28.9 51.2 30.4C49 33.2 47.5 36.8 47.5 40.8C47.5 47.4 52.9 52.8 59.5 52.8C62 52.8 64.3 52 66.2 50.6C64 37.8 53 28 40 28C46.5 28 52.5 28 57.5 28Z'/%3E%3C/svg%3E">
 
@@ -170,13 +170,12 @@
       <h1
         class="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-white pt-3 pb-1 max-w-[20ch] tracking-normal"
         style="line-height: 1.25;">
-        ИИ-Диспетчер МенеджAI: Сократим перерасход линейного ФОТ <span class="text-accent-bronze font-serif italic">на
+        ИИ-Диспетчер МенеджAI: Сократим перерасход ФОТ клинеров <span class="text-accent-bronze font-serif italic">на
           20% за 14 дней</span>
       </h1>
 
       <p class="text-[#c8c5c2] text-base md:text-lg font-normal leading-relaxed max-w-[54ch]">
-        Автономное распределение заказов, автоматический контроль выходов клинеров и курьеров, а также координация смен
-        через Telegram без ручных диспетчеров и хаоса в WhatsApp группах.
+        Автономное распределение уборок, автоматический контроль выходов клинеров и координация смен через Telegram без ручных диспетчеров и хаоса в WhatsApp группах. Решение проблемы найма и удержания линейного персонала.
       </p>
 
       <div class="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 pt-4">
@@ -235,7 +234,7 @@
             </button>
             <button id="factor-rainy" onclick="setWeather('rainy')"
               class="py-2 rounded-md text-[11px] font-bold transition-all duration-300 flex items-center justify-center space-x-1.5 text-charcoal-700 hover:text-white">
-              <span>🌧️ Сильный ливень</span>
+              <span>🌧️ Ливень и слякоть</span>
             </button>
           </div>
         </div>
@@ -252,7 +251,7 @@
                 class="w-8 h-8 rounded-full bg-charcoal-800 border border-charcoal-700 flex items-center justify-center text-[10px] font-bold text-accent-bronze font-sans shrink-0">
                 ИК</div>
               <div>
-                <div id="shift-name-1" class="text-xs font-semibold text-white">Игорь К. (Курьер, Авто-доставка)</div>
+                <div id="shift-name-1" class="text-xs font-semibold text-white">Игорь К. (Клинер, Мобильная бригада)</div>
                 <div id="shift-time-1" class="text-[9px] text-charcoal-700 mt-0.5">Смена: 10:00 - 22:00 (12 ч)</div>
               </div>
             </div>
@@ -292,7 +291,7 @@
                 class="w-8 h-8 rounded-full bg-charcoal-800 border border-charcoal-700 flex items-center justify-center text-[10px] font-bold text-accent-bronze font-sans shrink-0">
                 АВ</div>
               <div>
-                <div id="shift-name-3" class="text-xs font-semibold text-white">Артем В. (Курьер, Пешая доставка)</div>
+                <div id="shift-name-3" class="text-xs font-semibold text-white">Артем В. (Клинер, Химчистка / Мебель)</div>
                 <div id="shift-time-3" class="text-[9px] text-charcoal-700 mt-0.5">Смена: 16:00 - 22:00 (6 ч)</div>
               </div>
             </div>
@@ -348,8 +347,7 @@
               class="text-lg md:text-xl font-serif font-normal text-white group-hover:text-accent-bronze transition-colors duration-300">
               Мгновенный импорт</h3>
             <p class="text-charcoal-700 text-sm leading-relaxed max-w-[52ch]">
-              Загрузите активную базу сотрудников и журнал заказов через простой Excel-файл или API за 5 минут. Никаких
-              сложных интеграций с кассовыми системами или POS не требуется.
+              Загрузите активную базу клинеров и расписание уборок через простой Excel-файл или API за 5 минут. Никаких сложных интеграций и проверок безопасности не требуется.
             </p>
           </div>
         </div>
@@ -363,8 +361,7 @@
               class="text-lg md:text-xl font-serif font-normal text-white group-hover:text-accent-bronze transition-colors duration-300">
               AI-Оркестрация</h3>
             <p class="text-charcoal-700 text-sm leading-relaxed max-w-[52ch]">
-              ИИ-агент автоматически распределяет новые заказы между курьерами или клинерами с учетом их геолокации,
-              текущей загруженности, времени в пути и срочности задачи.
+              ИИ-агент автоматически распределяет новые заявки на уборку между клинерами с учетом их геолокации, текущей загруженности, времени в пути и типа уборки (поддерживающая, генеральная, мобильная бригада).
             </p>
           </div>
         </div>
@@ -378,8 +375,7 @@
               class="text-lg md:text-xl font-serif font-normal text-white group-hover:text-accent-bronze transition-colors duration-300">
               Автопилот в Telegram</h3>
             <p class="text-charcoal-700 text-sm leading-relaxed max-w-[52ch]">
-              Система сама высылает задачи сотрудникам: «Илья, для тебя сформирован заказ по адресу Х. Начало в 12:00.
-              Подтверди кнопкой». ИИ отслеживает выходы, обрабатывает опоздания и рассчитывает объективные KPI.
+              Система сама высылает задачи клинерам: «Илья, для тебя назначен объект по адресу Х. Начало в 12:00. Подтверди кнопкой». ИИ отслеживает выходы, обрабатывает опоздания и рассчитывает KPI.
             </p>
           </div>
         </div>
@@ -412,7 +408,7 @@
           <!-- Slider 1: Monthly FOT -->
           <div class="space-y-3">
             <div class="flex justify-between items-center text-xs">
-              <span class="text-[#b0adab]/70 font-medium">Месячный линейный ФОТ одного хаба / филиала:</span>
+              <span class="text-[#b0adab]/70 font-medium">Месячный ФОТ филиала / офиса клининга:</span>
               <span class="text-white font-sans font-bold text-sm" id="calc-fot-val">1 500 000 ₽</span>
             </div>
             <input type="range" id="calc-fot" min="300000" max="5000000" step="50000" value="1500000"
@@ -427,14 +423,14 @@
           <!-- Slider 2: Locations count -->
           <div class="space-y-3">
             <div class="flex justify-between items-center text-xs">
-              <span class="text-[#b0adab]/70 font-medium">Количество филиалов в сети:</span>
+              <span class="text-[#b0adab]/70 font-medium">Количество офисов / филиалов:</span>
               <span class="text-white font-sans font-bold text-sm" id="calc-locations-val">1</span>
             </div>
             <input type="range" id="calc-locations" min="1" max="25" step="1" value="1" oninput="updateCalculator()"
               class="w-full h-1 bg-charcoal-800 rounded-lg appearance-none cursor-pointer accent-accent-bronze">
             <div class="flex justify-between text-[9px] text-[#b0adab]/40 font-sans">
-              <span>1 филиал</span>
-              <span>25 филиалов</span>
+              <span>1 офис</span>
+              <span>25 офисов</span>
             </div>
           </div>
         </div>
@@ -551,7 +547,7 @@
         Безопасность. Лояльность. Полный контроль.
       </h2>
       <p class="text-charcoal-700 text-sm leading-relaxed">
-        Ответы на три главных опасения рестораторов при переходе на автономное ИИ-управление.
+        Ответы на три главных вопроса при переходе на автономное ИИ-управление.
       </p>
     </div>
 
@@ -568,11 +564,10 @@
         </div>
         <h3
           class="text-base font-serif font-normal text-white group-hover:text-accent-bronze transition-colors duration-300">
-          Интеграция без рисков для кассы
+          Свобода от POS-систем
         </h3>
         <p class="text-[#b0adab]/70 text-xs md:text-sm leading-relaxed">
-          МенеджAI работает исключительно в безопасном режиме чтения данных через официальные API-интерфейсы IIKO и
-          r-keeper. Мы не меняем настройки вашей кассовой системы и не имеем доступа к проведению транзакций.
+          МенеджAI работает без сложных интеграций и аудитов безопасности. Загрузка базы исполнителей и расписания уборок происходит через простой импорт Excel. Настройка занимает всего 5 минут.
         </p>
       </div>
 
@@ -591,8 +586,7 @@
           Сотрудники ценят честные правила
         </h3>
         <p class="text-[#b0adab]/70 text-xs md:text-sm leading-relaxed">
-          94% линейного персонала лояльнее относятся к алгоритмам, чем к менеджерам. Бот общается в Telegram вежливо,
-          всегда учитывает пожелания по выходным и распределяет смены абсолютно беспристрастно.
+          94% линейного персонала лояльнее относятся к алгоритмам, чем к менеджерам. Бот общается в Telegram вежливо, всегда учитывает пожелания по выходным и распределяет смены абсолютно беспристрастно.
         </p>
       </div>
 
@@ -608,11 +602,10 @@
         </div>
         <h3
           class="text-base font-serif font-normal text-white group-hover:text-accent-bronze transition-colors duration-300">
-          Полный ручной контроль
+          Решение боли с наймом
         </h3>
         <p class="text-[#b0adab]/70 text-xs md:text-sm leading-relaxed">
-          ИИ — это ваш автономный ассистент, а не замена руководству. Управляющий или директор сети в любой момент может
-          изменить график, отменить автоматическое решение ИИ или скорректировать параметры прогноза в один клик.
+          68% клининговых компаний называют подбор персонала главной проблемой. ИИ-Диспетчер минимизирует текучесть кадров за счет удобных и честных графиков, а также снижает нагрузку на координаторов на 80%.
         </p>
       </div>
     </div>
@@ -707,29 +700,17 @@
                   class="w-full px-4 py-3 rounded-lg text-sm text-white glass-input bg-charcoal-950">
               </div>
               <div>
-                <label for="company-sphere"
-                  class="block text-[10px] font-semibold text-[#b0adab]/60 tracking-wide mb-2">Сфера
-                  деятельности</label>
-                <select id="company-sphere" required
+                <label for="company-employees"
+                  class="block text-[10px] font-semibold text-[#b0adab]/60 tracking-wide mb-2">Число сотрудников</label>
+                <select id="company-employees" required
                   class="w-full px-4 py-3 rounded-lg text-sm text-white glass-input bg-charcoal-950 pr-8">
-                  <option value="" disabled selected class="text-charcoal-700">Выберите сферу...</option>
-                  <option value="cleaning" class="text-white">Клининговая компания</option>
-                  <option value="delivery" class="text-white">Служба доставки / курьеры</option>
+                  <option value="" disabled selected class="text-charcoal-700">Выберите масштаб...</option>
+                  <option value="до 20" class="text-white">до 20 сотрудников</option>
+                  <option value="20-50" class="text-white">20-50 сотрудников</option>
+                  <option value="50-150" class="text-white">50-150 сотрудников</option>
+                  <option value="более 150" class="text-white">более 150 сотрудников</option>
                 </select>
               </div>
-            </div>
-
-            <div>
-              <label for="company-employees"
-                class="block text-[10px] font-semibold text-[#b0adab]/60 tracking-wide mb-2">Число сотрудников</label>
-              <select id="company-employees" required
-                class="w-full px-4 py-3 rounded-lg text-sm text-white glass-input bg-charcoal-950 pr-8">
-                <option value="" disabled selected class="text-charcoal-700">Выберите масштаб...</option>
-                <option value="до 20" class="text-white">до 20 сотрудников</option>
-                <option value="20-50" class="text-white">20-50 сотрудников</option>
-                <option value="50-150" class="text-white">50-150 сотрудников</option>
-                <option value="более 150" class="text-white">более 150 сотрудников</option>
-              </select>
             </div>
 
             <!-- Card Details Block (Fake Door Payment Trap) -->
@@ -895,7 +876,7 @@
 
       <div class="space-y-4 text-[#b0adab]/70 text-sm leading-relaxed mb-6">
         <p class="text-center font-semibold text-white">
-          Из-за экстремального наплыва сервисных компаний на тест-драйв ИИ-Диспетчера платежная система испытывает
+          Из-за экстремального наплыва клининговых компаний на тест-драйв ИИ-Диспетчера платежная система испытывает
           временные технические трудности.
         </p>
         <p class="text-[#b0adab]/60 text-center">
@@ -925,21 +906,21 @@
       sunny: {
         fot: "38 400 ₽",
         save: "0 ₽ (0%)",
-        log: `[12:08:16] База исполнителей импортирована.\n[12:08:16] Расчет маршрутов завершен. 14 адресов.\n[12:08:17] Статус: Нагрузка в норме. Распределение курьеров стабильно.`,
+        log: `[12:08:16] База исполнителей импортирована.\n[12:08:16] Расчет маршрутов бригад завершен. 14 адресов.\n[12:08:17] Статус: Нагрузка в норме. Распределение клинеров стабильно.`,
         shifts: [
-          { name: "Игорь К. (Курьер, Авто-доставка)", time: "10:00 - 22:00 (12 ч)", status: "Активен", active: true },
+          { name: "Игорь К. (Клинер, Мобильная бригада)", time: "10:00 - 22:00 (12 ч)", status: "Активен", active: true },
           { name: "Мария Д. (Клинер, Офис-экспресс)", time: "12:00 - 18:00 (6 ч)", status: "Активен", active: true },
-          { name: "Артем В. (Курьер, Пешая доставка)", time: "16:00 - 22:00 (6 ч)", status: "Активен", active: true }
+          { name: "Артем В. (Клинер, Химчистка / Мебель)", time: "16:00 - 22:00 (6 ч)", status: "Активен", active: true }
         ]
       },
       rainy: {
         fot: "29 200 ₽",
         save: "9 200 ₽ (24%)",
-        log: `[12:09:01] Фактор: Сильный ливень 🌧️.\n[12:09:01] ИИ: Корректировка заказов. Отмена уличных клининг-объектов.\n[12:09:02] Сокращение часов простоя. Telegram-оповещения отправлены.`,
+        log: `[12:09:01] Фактор: Ливень и слякоть 🌧️.\n[12:09:01] ИИ: Корректировка графиков. Отмена наружного мытья окон.\n[12:09:02] Сокращение часов простоя. Telegram-оповещения отправлены.`,
         shifts: [
-          { name: "Игорь К. (Курьер, Авто-доставка)", time: "10:00 - 22:00 (12 ч)", status: "Активен", active: true },
+          { name: "Игорь К. (Клинер, Мобильная бригада)", time: "10:00 - 22:00 (12 ч)", status: "Активен", active: true },
           { name: "Мария Д. (Клинер, Офис-экспресс)", time: "12:00 - 18:00 (6 ч)", status: "Отменен", active: false },
-          { name: "Артем В. (Курьер, Пешая доставка)", time: "16:00 - 20:00 (4 ч)", status: "Активен", active: true }
+          { name: "Артем В. (Клинер, Химчистка / Мебель)", time: "16:00 - 20:00 (4 ч)", status: "Активен", active: true }
         ]
       }
     };
@@ -999,7 +980,6 @@
       const name = document.getElementById('client-name').value;
       const phone = document.getElementById('client-phone').value;
       const company = document.getElementById('company-name').value;
-      const sphere = document.getElementById('company-sphere').value;
       const employees = document.getElementById('company-employees').value;
 
       // Read card info (masked for security logs representation)
@@ -1010,7 +990,7 @@
         name,
         phone,
         company,
-        sphere: sphere === 'cleaning' ? 'Клининг' : 'Доставка',
+        sphere: 'Клининг',
         employees,
         card: maskedCard,
         timestamp: new Date().toISOString(),
